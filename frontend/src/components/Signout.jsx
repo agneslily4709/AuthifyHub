@@ -1,12 +1,13 @@
 import React from 'react'
+import getCookie from "../Utils/helper.js"
 
 const Signout = () => {
-
-        document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        fetch('http://localhost:5000/api/signout', {
+        const token = getCookie("token")
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    fetch('http://localhost:5000/api/signout', {
     method: 'GET',
     headers: {
-        'Authorization': `Bearer`,
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
     },
 })      
