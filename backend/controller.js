@@ -27,9 +27,8 @@ export const signInUser = async(req,res) => {
                 if(!user) return res.status(403).json({message:"Email Id does not exist"})
                 const passwordCheck = await bcrypt.compare(password,user.password)
                 if(!passwordCheck) return res.status(403).json({message:"Wrong password"})
-                const authToken = jwt.sign({id:user.id,fullName:user.fullName,email:user.email},process.env.AUTH_KEY,{expiresIn:"60s"})
+                const authToken = jwt.sign({id:user.id,fullName:user.fullName,email:user.email},process.env.AUTH_KEY,{expiresIn:"1h"})
                 res.setHeader("X-Auth-Token", authToken);
-                res.setHeader("name", "lilui");
                 res.status(200).json({ message: "Login successful" });
 
         } catch (error) {
@@ -39,6 +38,8 @@ export const signInUser = async(req,res) => {
 
 export  const getProfile = async(req,res) => {
         const user = req.user
+        console.log("================Profile============");
+        console.log(user);
         try {
                 res.status(200).json({fullName:user.fullName,email:user.email,id:user.id})
         } catch (error) {
@@ -47,8 +48,14 @@ export  const getProfile = async(req,res) => {
 }
 
 export const signOutUser = async(req,res) => {
+        const token = req.token
+        const user = req.user
         try {
-                
+                const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
+                user.iat = currentTimestampInSeconds;
+                user.exp = currentTimestampInSeconds;
+               console.log(user);
+               res.status(200).json({message:"Signout successful"})
         } catch (error) {
                 res.status(400).json({message:"Error",error:error})
         }
