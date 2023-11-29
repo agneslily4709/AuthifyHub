@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import getCookie from "../Utils/helper.js"
 
 const Profile = () => {
-        function getCookie(name) {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    if (cookie.startsWith(name + '=')) {
-                        return cookie.substring(name.length + 1);
-                    }
-                }
-                return null;
-            }
+
         const [profile,setProfile] = useState({})
         const token = getCookie("token")
             useEffect(()=>{
