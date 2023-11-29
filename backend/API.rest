@@ -18,3 +18,13 @@ Content-Type: application/json
         "email":"agneslily2772@gmail.com",
         "password":"Agnes@2002"
 }
+
+###
+GET http://localhost:5000/api/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjU3ZWNjZjRhZDEwZmFlMThkZDJiYSIsImZ1bGxOYW1lIjoiQWduZXMgTGlseSIsImVtYWlsIjoiYWduZXNsaWx5Mjc3MkBnbWFpbC5jb20iLCJpYXQiOjE3MDEyNjcyMTcsImV4cCI6MTcwMTI3MDgxN30.p_bTrzbThiTy_CfrY7G-5DKFHMuyqowIWcBq1KG4jq0
+
+###
+GET http://localhost:5000/api/signout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjU3ZWNjZjRhZDEwZmFlMThkZDJiYSIsImZ1bGxOYW1lIjoiQWduZXMgTGlseSIsImVtYWlsIjoiYWduZXNsaWx5Mjc3MkBnbWFpbC5jb20iLCJpYXQiOjE3MDEyNjcyMTcsImV4cCI6MTcwMTI3MDgxN30.p_bTrzbThiTy_CfrY7G-5DKFHMuyqowIWcBq1KG4jq0
