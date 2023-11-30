@@ -38,8 +38,6 @@ export const signInUser = async(req,res) => {
 
 export  const getProfile = async(req,res) => {
         const user = req.user
-        console.log("================Profile============");
-        console.log(user);
         try {
                 res.status(200).json({fullName:user.fullName,email:user.email,id:user.id})
         } catch (error) {
